@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <script>
+function validate(){
+            var name=document.stud_form.name;
+            
+            if(name.value.length<=0) {
+                alert("Name is required!")
+                name.focus()
+                return false;
+            }
+            var mobile=document.stud_form.mobile;
+            if(mobile.value.length<=0) {
+                alert("Mobile Number is required!")
+                name.focus()
+                return false;
+            }
+
+            var Email=document.stud_form.Email;
+            if(Email.value.length<=0) {
+                alert("Email is required!")
+                name.focus()
+                return false;
+            }
+
+            var gender=document.stud_form.gender;
+            if(gender.value.length<=0) {
+                alert("Gender is required!")
+                name.focus()
+                return false;
+            }
+
+            var course=document.stud_form.course;
+            if(course.value=="Select") {
+                alert("Course is required!")
+                name.focus()
+                return false;
+            }
+
+            var check =false;
+            for(var i=program.length-1; i>=0;i--){
+                if(program[i].checked){
+                    check.true;
+                }
+            }
+                if(check==false){
+                    alert("Program is required!")
+                    return false;
+                }
+
+        }
+        function validateString(id){
+            var element=document.getElementById(id);
+            var regExp=/^[a-zA-Z]+{1,15}$/;
+            if(!regExp.test(element.value)){
+                alert("Enter String Value")
+                return false;
+            }
+        }
+
+        function validateEmail(id){
+            var element=document.getElementById(id);
+            var regExp=/^[a-zA-z0-9._]+@[a-a-zA-Z0-9.-]+\.[a-a-zA-Z]{2,4}$/
+            if(!regExp.test(element.value)){
+                alert("Enter Valid Value");
+                return false;
+            }
+        }
+
+        function validateMobile(id){
+            var element=document.getElementById(id);
+            var regExp=/^[0-9]{11}$/
+            if(!regExp.test(element.value)){
+                alert("Enter Valid Value");
+                return false;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h1>
+        Signup Form
+    </h1>
+    <hr>
+    <h2>Student Form</h2>
+    <form method="" action="" name="stud_form" onsubmit="return validate()">
+        <table>
+        
+                <tr>
+                    <td>
+                        <label >Name</label>
+                    </td>
+                    <td>
+                        <input type="text" name="name" id="name" onblur="validateString(this.id)">
+                    </td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <label >Mobile</label>
+                    </td>
+                    <td><input type="number" name="mobile" id="mobile" onblur="validateMobile(this.id)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label >Email</label>
+                    </td>
+                    <td><input type="text" name="Email" id="Email" onblur="validateEmail(this.id)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label >Gender</label>
+                    </td>
+                    <td><input type="radio" name="gender" value="Male"> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label >Course</label>
+                    </td>
+                    <td>
+                        <select name="course">
+                            <option>
+                                Select
+                            </option>
+                            <option>
+                                HTML
+                            </option>
+                            <option>
+                                CSS
+                            </option>
+                            <option>
+                                JavaScript
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label >Select Program</label>
+                    </td>
+                    <td><input type="checkbox" name="program">BSCS
+                    <input type="checkbox" name="program">BSSE
+                    <input type="checkbox" name="program">BSAI</td>
+                </tr>
+                <tr>
+        
+                    <td><input type="submit" name="submit" value="Submit">
+                    <input type="reset" name="reset" value="Reset"></td>
+                </tr>
+        </table>
+    </form>
+</body>
+</html>
